@@ -11,6 +11,11 @@ def get_zip_info(directory_path):
     # 현재 디렉토리의 파일 중에서 확장자가 .zip인 것을 찾음
     zip_files = [file for file in files_in_directory if file.endswith('.zip')]
     
+    # 만약 zip 파일이 없으면 종료
+    if not zip_files:
+        print("디렉토리에 zip 파일이 없습니다.")
+        return
+    
     # 모든 zip 파일에 대해 반복
     for zip_file in zip_files:
         # zip 파일 경로
