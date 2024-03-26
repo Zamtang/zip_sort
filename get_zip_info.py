@@ -1,5 +1,7 @@
 import os
+import sys
 import zipfile as zf
+import sort_main
 
 def get_zip_info(directory_path):
     # 결과를 담을 사전
@@ -14,7 +16,8 @@ def get_zip_info(directory_path):
     # 만약 zip 파일이 없으면 종료
     if not zip_files:
         print("디렉토리에 zip 파일이 없습니다.")
-        return
+        sort_main.wait_for_key()
+        sys.exit()
     
     # 모든 zip 파일에 대해 반복
     for zip_file in zip_files:

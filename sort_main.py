@@ -40,3 +40,8 @@ def move_file(zip_info, sel_path):
         os.rename(source_path, target_path)
 
         print(f"'{zip_file}' 파일을 '{target_folder}' 폴더로 이동했습니다.")
+
+def wait_for_key():
+    print("프로그램을 종료하려면 아무 키나 누르세요...")
+    input()  # 사용자 입력 대기
+    print("프로그램을 종료합니다.")
