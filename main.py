@@ -1,6 +1,3 @@
-import sys
-sys.path.append("back")
-
 # custom 함수
 import sort_main
 

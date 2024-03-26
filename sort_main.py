@@ -1,15 +1,23 @@
 import os
 import get_zip_info as z_info
+import win_fun
 
 def sort_main():
-    zip_info = z_info.get_zip_info('./test_file/')
-    move_file(zip_info)
+    try:
+        folder_path = win_fun.select_folder()
+        # 선택된 폴더의 경로를 사용하여 추가 작업을 수행할 수 있습니다.
+        print("선택한 폴더 경로:", folder_path)
+    except ValueError as e:
+        print("에러 발생:", e)
+
+    zip_info = z_info.get_zip_info(folder_path)
+    move_file(zip_info, folder_path)
 
 # move file 100 +-
-def move_file(zip_info):
+def move_file(zip_info, sel_path):
     # 파일을 이동할 폴더 이름 설정
-    long_folder = 'long'
-    short_folder = 'short'
+    long_folder = os.path.join(sel_path, 'long')
+    short_folder = os.path.join(sel_path, 'short')
 
     # 폴더 생성
     for folder in [long_folder, short_folder]:
